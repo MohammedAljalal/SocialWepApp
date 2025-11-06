@@ -1,0 +1,132 @@
+
+    body {
+      background-color: #1c1c1c;
+      font-family: 'Cairo', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+    .navbar-nav > li > a img {
+  vertical-align: middle;
+}
+
+
+    .card {
+      background-color: #323030;
+      color: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: left;
+      padding: 15px;
+    }
+
+    .card img.post-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .comment-box {
+      background-color: #2a2a2a;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .comment-box img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+   .comment-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-top: 15px;
+}
+
+#comment-input {
+  flex: 1; 
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #555;
+  outline: none;
+  resize: vertical;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#comment-input:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 8px rgba(24, 119, 242, 0.5);
+  background-color: #222;
+}
+
+.btn-send {
+  background-color: #1877f2;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-send:hover {
+  background-color: #0d6efd;
+}
+
+    .back-btn {
+      background-color: #111;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #222;
+      text-decoration: none;
+      color: white;
+    }
+
+    #loader {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .spinner {
+      border: 5px solid rgba(255,255,255,0.2);
+      border-top: 5px solid #0d6efd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-brand, .navbar-nav > li > a {
+        font-size: 14px;
+      }
+    }
+  

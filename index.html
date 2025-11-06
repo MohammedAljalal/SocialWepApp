@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialWepApp</title>
+ 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+          <link rel="stylesheet" href="index.css">
+</head>
+          <body>
+           <div   id="addpost" style="position: fixed;bottom: 5%;right: 8%;height: 70px; cursor: pointer;">
+            <a  href="#creatpost"  data-toggle="modal" data-target="#creatpost"  >
+            <svg  style="font-size:50px;" class="addpostt" xmlns="https://www.w3.org/2000/svg" width="30" height="70" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+</svg></a>
+            </div>
+<nav class="navbar navbar-inverse shadow fixed-top" style="background-color: black;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand " href="#" >SocialHub</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="#">Home</a></li>
+        <li><a href="#" id="nav-profile">Profile</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="loginul">
+        <li id="registerbtn" ><a  href="#registerModal"  data-toggle="modal" data-target="#registerModal"  ><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+        <li id="logintn"><a  href="#login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" id="logoutul">
+        <div style="display: flex; align-items: center;gap: 10px;">
+          <div id="information" style="display: flex; align-items: center;gap:5px" >
+        <li><img id="user_image" src="Photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;"></li>
+        <b id="user_name">@mohammed algalal</b>
+        </div>
+        
+        <li id="logoutbtn" onclick="logout()" ><a  href="#" style="color:red;" ><span class="glyphicon glyphicon-user"></span> log out</a></li>
+        </div>
+    </div>
+  </div>
+</nav>
+<div class="container "  style=" display:flex; justify-content:center;">
+  <div class="col-10  " id="post">
+  <div   class="card" style=" background-color:#323030; margin-bottom: 10px; overflow:hidden;" >
+  <div class="card-header shadow-lg">
+    <div style="background-color: #2a2a2a; padding: 4px; color: white;">
+    <img src="Photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;">
+    <b>@mohammed</b>
+    </div>
+  </div>
+  <div class="card-body" >
+    <div  onclick="postinfo()" id="bodycard">
+    <img style="width: 100%; "  src="Photo2.jpg" alt="" width="600px" height="600px"   >
+    <h6 style="color: rgb(124, 121, 121);"> 2 min ago</h6>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem esse aut magnam sunt quam, culpa architecto nihil facere eaque nam distinctio, officiis iure perferendis ex ipsa harum deleniti hic deserunt.</p>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 5px; color: white;">
+    <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg>
+<b> (3) comments</b>
+    </div>
+    
+  <div style="display: flex; gap: 8px;">
+    <a  href="#editmodal"  data-toggle="modal" data-target="#editmodal"  >
+    <button class="btn btn-primary btn-sm edit-btn" data-postid="${post.id}" data-toggle="modal" data-target="#editmodal">Edit</button>
+
+    </a>
+    <button class="btn btn-danger btn-sm" onclick="deletePost()">Delete</button>
+  </div>
+</div>
+
+
+  </div>
+</div>
+ <div class="card  post-card" style=" background-color: #323030; margin-bottom: 20px; overflow:hidden;" id="post" data-id="${post.id}" >
+  <div class="card-header shadow-lg">
+    <div style="background-color:darkgrey; padding: 4px;">
+    <img src="Photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;">
+    <b>@mohammed</b>
+    </div>
+  </div>
+  <div class="card-body" style="margin: 20px;">
+    <img style="width: 100%; "  src="Photo2.jpg" alt="" width="600px" height="600px"   >
+    <h6 style="color: rgb(124, 121, 121);"> 2 min ago</h6>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem esse aut magnam sunt quam, culpa architecto nihil facere eaque nam distinctio, officiis iure perferendis ex ipsa harum deleniti hic deserunt.</p>
+    <hr>
+    <div class="" >
+    <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg>
+<b> (3) comments</b>
+    </div>
+
+  </div>
+</div>
+ <div class="card" style=" background-color: lightgray; margin-bottom: 20px; overflow:hidden;" id="post" >
+  <div class="card-header shadow-lg">
+    <div style="background-color:darkgrey; padding: 4px;">
+    <img src="Photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;">
+    <b>@mohammed</b>
+    </div>
+  </div>
+  <div class="card-body" style="margin: 20px;">
+    <img style="width: 100%; "  src="Photo2.jpg" alt="" width="600px" height="600px"   >
+    <h6 style="color: rgb(124, 121, 121);"> 2 min ago</h6>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem esse aut magnam sunt quam, culpa architecto nihil facere eaque nam distinctio, officiis iure perferendis ex ipsa harum deleniti hic deserunt.</p>
+    <hr>
+    <div class="p-2">
+    <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg>
+<b> (3) comments</b> 
+    </div>
+
+  </div>
+</div>
+ <div class="card" style=" background-color: lightgray; margin-bottom: 20px; overflow:hidden;" id="post" >
+  <div class="card-header shadow-lg">
+    <div style="background-color:darkgrey; padding: 4px;">
+    <img src="photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;">
+    <b>@mohammed</b>
+    </div>
+  </div>
+  <div class="card-body" style="margin: 20px;" >
+    <img style="width: 100%; "  src="photo2.jpg" alt="" width="400px" height="400px"   >
+    <h6 style="color: rgb(124, 121, 121);"> 2 min ago</h6>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem esse aut magnam sunt quam, culpa architecto nihil facere eaque nam distinctio, officiis iure perferendis ex ipsa harum deleniti hic deserunt.</p>
+    <hr>
+    <div class="p-2">
+    <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg>
+<b> (3) comments</b>
+    </div>
+
+  </div>
+</div>
+ <div class="card" style=" background-color: lightgray; margin-bottom: 20px; overflow:hidden;" id="post" >
+  <div class="card-header shadow-lg">
+    <div style="background-color:darkgrey; padding: 4px;">
+    <img src="photo2.jpg"  alt="" width="40px" height="40px" class="rounded-circle border border-1" style="border-radius: 50%;">
+    <b>@mohammed</b>
+    </div>
+  </div>
+  <div class="card-body" style="margin: 20px;">
+    <img style="width: 100%; "  src="photo2.jpg" alt="" width="600px" height="600px"   >
+    <h6 style="color: rgb(124, 121, 121);"> 2 min ago</h6>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem esse aut magnam sunt quam, culpa architecto nihil facere eaque nam distinctio, officiis iure perferendis ex ipsa harum deleniti hic deserunt.</p>
+    <hr>
+    <div class="p-2">
+    <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg>
+<b> (3) comments</b>
+    </div>
+
+  </div>
+</div>
+  </div>
+</div>
+<!--   creat post -->
+<div class="modal fade"  id="creatpost" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="background-color: #323030;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="registerLabel"><b>Creat Post</b></h3>
+        <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="posttitle">Title:</label>
+            <input type="text" class="form-control" id="posttitle" >
+          </div>
+
+          <div class="form-group">
+            <label for="postbody">Body:</label>
+            <textarea name="" id="postbody" class="form-control" style="width: 100%; height: 70px;" ></textarea> 
+          </div>
+
+          <div class="form-group">
+            <label for="postreg-image">Profile Image (اختياري):</label>
+            <input type="file" class="form-control" id="postreg-image" accept="image/*">
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button  onclick="addposts()" type="button" class="btn btn-primary" >Creat Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 🔹 Edit Modal -->
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #2a2a2a; color: white;">
+      <div class="modal-header">
+        <h4 class="modal-title" id="editLabel">✏️ Edit Post</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="edit-title" class="form-control" placeholder="Edit title">
+        </div>
+        <div class="form-group">
+          <label>Body</label>
+          <textarea id="edit-body" class="form-control" placeholder="Edit body"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Current Image</label>
+          <img id="edit-image-preview" src="photo2.jpg" alt="preview" style="width: 100%; margin-bottom: 10px;">
+          <label>Change Image</label>
+          <input type="file" id="edit-image" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-edit-btn" class="btn btn-primary">Save Changes</button>
+        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Login Modal -->
+  <div id="login" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:#2a2a2a; color:white;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">🔑 Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" class="form-control" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Enter password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="loginuser()">Login</button>
+          <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Register Modal -->
+  <div id="registerModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color:#2a2a2a; color:white;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">📝 Register</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="reg-username" class="form-control" placeholder="Choose a username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="Enter password">
+          </div>
+          <div class="form-group">
+            <label>Profile Image</label>
+            <input type="file" id="reg-image" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" onclick="registerUser()">Register</button>
+          <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 🔹 اللودر -->
+<div id="loader" class="d-flex">
+  <div class="spinner"></div>
+  <div class="loader-text"></div>
+</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
+
+
+</body>
+</html>
