@@ -271,7 +271,7 @@ function getuser(){
 
 let bodycard=document.getElementById("bodycard");
 bodycard.addEventListener("click",function postinfo(){
-   window.location.href = `postDetails.html?id=${postId}`;
+   window.location.href = `postdetails.html?id=${postId}`;
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -293,7 +293,7 @@ function attachPostEventListeners() {
     const authorId = post.getAttribute("data-author-id");
 
     post.addEventListener("click", () => {
-      window.location.href = `postDetails.html?id=${postId}`;
+      window.location.href = `postdetails.html?id=${postId}`;
     });
 
     const editBtn = post.querySelector(".edit-btn");
